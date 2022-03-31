@@ -14,6 +14,8 @@
 		DA9820C227F626AD00D4410B /* WorldTour.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA9820C027F626AD00D4410B /* WorldTour.xcdatamodeld */; };
 		DA9820C427F626B000D4410B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9820C327F626B000D4410B /* Assets.xcassets */; };
 		DA9820C727F626B000D4410B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA9820C527F626B000D4410B /* LaunchScreen.storyboard */; };
+		DA9820D327F6318E00D4410B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9820D227F6318E00D4410B /* NetworkService.swift */; };
+		DA9820D527F6323800D4410B /* CountriesAllResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9820D427F6323800D4410B /* CountriesAllResponse.swift */; };
 		E498400840838975C8B7B42B /* libPods-WorldTour.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD97F1685455FA0FC3C7158 /* libPods-WorldTour.a */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		DA9820C327F626B000D4410B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA9820C627F626B000D4410B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA9820C827F626B000D4410B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA9820D227F6318E00D4410B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		DA9820D427F6323800D4410B /* CountriesAllResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesAllResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +54,6 @@
 				C482A8E02CBCB6FC2F84EC74 /* Pods-WorldTour.debug.xcconfig */,
 				0C8AA76E446DC9C10AFE86DE /* Pods-WorldTour.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,6 +86,8 @@
 		DA9820B627F626AD00D4410B /* WorldTour */ = {
 			isa = PBXGroup;
 			children = (
+				DA9820CF27F630F600D4410B /* NetworkService */,
+				DA9820CE27F630DB00D4410B /* DataModel */,
 				DA9820B727F626AD00D4410B /* AppDelegate.swift */,
 				DA9820B927F626AD00D4410B /* SceneDelegate.swift */,
 				DA9820BB27F626AD00D4410B /* ViewController.swift */,
@@ -90,9 +95,41 @@
 				DA9820C327F626B000D4410B /* Assets.xcassets */,
 				DA9820C527F626B000D4410B /* LaunchScreen.storyboard */,
 				DA9820C827F626B000D4410B /* Info.plist */,
-				DA9820C027F626AD00D4410B /* WorldTour.xcdatamodeld */,
 			);
 			path = WorldTour;
+			sourceTree = "<group>";
+		};
+		DA9820CE27F630DB00D4410B /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				DA9820C027F626AD00D4410B /* WorldTour.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		DA9820CF27F630F600D4410B /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				DA9820D127F6312000D4410B /* Responses */,
+				DA9820D027F6311600D4410B /* Requests */,
+				DA9820D227F6318E00D4410B /* NetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		DA9820D027F6311600D4410B /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		DA9820D127F6312000D4410B /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				DA9820D427F6323800D4410B /* CountriesAllResponse.swift */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +229,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA9820D527F6323800D4410B /* CountriesAllResponse.swift in Sources */,
+				DA9820D327F6318E00D4410B /* NetworkService.swift in Sources */,
 				DA9820C227F626AD00D4410B /* WorldTour.xcdatamodeld in Sources */,
 				DA9820BC27F626AD00D4410B /* ViewController.swift in Sources */,
 				DA9820B827F626AD00D4410B /* AppDelegate.swift in Sources */,
