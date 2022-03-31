@@ -14,9 +14,13 @@
 		DA9820C227F626AD00D4410B /* WorldTour.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA9820C027F626AD00D4410B /* WorldTour.xcdatamodeld */; };
 		DA9820C427F626B000D4410B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9820C327F626B000D4410B /* Assets.xcassets */; };
 		DA9820C727F626B000D4410B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA9820C527F626B000D4410B /* LaunchScreen.storyboard */; };
+		E498400840838975C8B7B42B /* libPods-WorldTour.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD97F1685455FA0FC3C7158 /* libPods-WorldTour.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C8AA76E446DC9C10AFE86DE /* Pods-WorldTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTour.release.xcconfig"; path = "Target Support Files/Pods-WorldTour/Pods-WorldTour.release.xcconfig"; sourceTree = "<group>"; };
+		5FD97F1685455FA0FC3C7158 /* libPods-WorldTour.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WorldTour.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C482A8E02CBCB6FC2F84EC74 /* Pods-WorldTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTour.debug.xcconfig"; path = "Target Support Files/Pods-WorldTour/Pods-WorldTour.debug.xcconfig"; sourceTree = "<group>"; };
 		DA9820B427F626AD00D4410B /* WorldTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9820B727F626AD00D4410B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA9820B927F626AD00D4410B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,17 +37,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E498400840838975C8B7B42B /* libPods-WorldTour.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		176C30CC08AD54E15C0C6FDE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C482A8E02CBCB6FC2F84EC74 /* Pods-WorldTour.debug.xcconfig */,
+				0C8AA76E446DC9C10AFE86DE /* Pods-WorldTour.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5855CBCF82B83C486CDFE1AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FD97F1685455FA0FC3C7158 /* libPods-WorldTour.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DA9820AB27F626AD00D4410B = {
 			isa = PBXGroup;
 			children = (
 				DA9820B627F626AD00D4410B /* WorldTour */,
 				DA9820B527F626AD00D4410B /* Products */,
+				176C30CC08AD54E15C0C6FDE /* Pods */,
+				5855CBCF82B83C486CDFE1AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +102,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA9820CB27F626B000D4410B /* Build configuration list for PBXNativeTarget "WorldTour" */;
 			buildPhases = (
+				04E93036B2F3C244F321515D /* [CP] Check Pods Manifest.lock */,
 				DA9820B027F626AD00D4410B /* Sources */,
 				DA9820B127F626AD00D4410B /* Frameworks */,
 				DA9820B227F626AD00D4410B /* Resources */,
@@ -135,6 +161,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04E93036B2F3C244F321515D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WorldTour-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DA9820B027F626AD00D4410B /* Sources */ = {
@@ -286,6 +337,7 @@
 		};
 		DA9820CC27F626B000D4410B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C482A8E02CBCB6FC2F84EC74 /* Pods-WorldTour.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -298,6 +350,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +366,7 @@
 		};
 		DA9820CD27F626B000D4410B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C8AA76E446DC9C10AFE86DE /* Pods-WorldTour.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -325,6 +379,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
