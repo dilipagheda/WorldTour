@@ -18,7 +18,7 @@ class BorderCountryCollectionViewCell: UICollectionViewCell {
     
 }
 
-class DetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate {
+class DetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -98,6 +98,11 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
             newCell.countryName.text = "Australia"
             return newCell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 80, height: 80)
     }
     
 }
