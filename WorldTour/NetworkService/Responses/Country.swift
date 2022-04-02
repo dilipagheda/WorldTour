@@ -20,19 +20,19 @@ class Flag: Codable {
 
 class Language: Codable {
     let name: String
-    let nativeName: String
+    let nativeName: String?
 }
 
-class CountriesAllResponse: Codable {
+class Country: Codable {
     let alpha3Code: String
     let name: String
     let nativeName: String
-    let capital: String
+    let capital: String?
     let subregion: String
     let region: String
     let population: UInt64
     let flags: Flag
-    let currencies: [Currency]
+    let currencies: [Currency]?
     let languages: [Language]
-    let borders: [String]
+    let borders: [String]?
 }
