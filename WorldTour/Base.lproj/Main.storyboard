@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ixy-il-jFF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZVB-4a-hxz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -493,6 +493,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBL-ky-Egq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3407" y="-595"/>
+        </scene>
+        <!--Gallary View Controller-->
+        <scene sceneID="iW8-5h-5Lz">
+            <objects>
+                <viewController id="ZVB-4a-hxz" customClass="GallaryViewController" customModule="WorldTour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qKH-bC-9nZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UHc-XW-gtb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="gallaryCell" id="Rje-WF-Pbi" customClass="GallaryViewCell" customModule="WorldTour" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="210.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rje-WF-Pbi" id="lEd-hi-C2g">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="210.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YmM-2w-ztm">
+                                                    <rect key="frame" x="5" y="5" width="404" height="200.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="eQ7-lL-qPw"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="YmM-2w-ztm" secondAttribute="bottom" constant="5" id="220-F0-B9x"/>
+                                                <constraint firstItem="YmM-2w-ztm" firstAttribute="top" secondItem="lEd-hi-C2g" secondAttribute="top" constant="5" id="5e0-r0-KSn"/>
+                                                <constraint firstAttribute="trailing" secondItem="YmM-2w-ztm" secondAttribute="trailing" constant="5" id="JOg-WR-Adg"/>
+                                                <constraint firstItem="YmM-2w-ztm" firstAttribute="leading" secondItem="lEd-hi-C2g" secondAttribute="leading" constant="5" id="k1r-YG-k10"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gallaryImage" destination="YmM-2w-ztm" id="kc5-Cw-WwK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JNY-C5-V0o"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UHc-XW-gtb" firstAttribute="leading" secondItem="JNY-C5-V0o" secondAttribute="leading" id="HBe-YO-gtw"/>
+                            <constraint firstItem="UHc-XW-gtb" firstAttribute="top" secondItem="JNY-C5-V0o" secondAttribute="top" id="P5A-Ut-Q3Q"/>
+                            <constraint firstItem="JNY-C5-V0o" firstAttribute="trailing" secondItem="UHc-XW-gtb" secondAttribute="trailing" id="pig-Qn-b0L"/>
+                            <constraint firstItem="JNY-C5-V0o" firstAttribute="bottom" secondItem="UHc-XW-gtb" secondAttribute="bottom" id="v0R-f9-aAJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="UHc-XW-gtb" id="d1T-gv-gIX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BKI-X9-vh5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3406" y="106"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hX0-0d-SWu">

@@ -20,6 +20,7 @@
 		DA9820DB27F7C0D700D4410B /* FavoriteCountriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9820DA27F7C0D700D4410B /* FavoriteCountriesListViewController.swift */; };
 		DA9820DD27F8277D00D4410B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9820DC27F8277D00D4410B /* DetailsViewController.swift */; };
 		DA9820DF27F8536600D4410B /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9820DE27F8536600D4410B /* WeatherViewController.swift */; };
+		DA9820E227F862B400D4410B /* GallaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9820E127F862B400D4410B /* GallaryViewController.swift */; };
 		E498400840838975C8B7B42B /* libPods-WorldTour.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FD97F1685455FA0FC3C7158 /* libPods-WorldTour.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		DA9820DA27F7C0D700D4410B /* FavoriteCountriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCountriesListViewController.swift; sourceTree = "<group>"; };
 		DA9820DC27F8277D00D4410B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		DA9820DE27F8536600D4410B /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		DA9820E127F862B400D4410B /* GallaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				DA9820DA27F7C0D700D4410B /* FavoriteCountriesListViewController.swift */,
 				DA9820DC27F8277D00D4410B /* DetailsViewController.swift */,
 				DA9820DE27F8536600D4410B /* WeatherViewController.swift */,
+				DA9820E127F862B400D4410B /* GallaryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				DA9820DD27F8277D00D4410B /* DetailsViewController.swift in Sources */,
 				DA9820C227F626AD00D4410B /* WorldTour.xcdatamodeld in Sources */,
 				DA9820DB27F7C0D700D4410B /* FavoriteCountriesListViewController.swift in Sources */,
+				DA9820E227F862B400D4410B /* GallaryViewController.swift in Sources */,
 				DA9820BC27F626AD00D4410B /* CountriesListViewController.swift in Sources */,
 				DA9820B827F626AD00D4410B /* AppDelegate.swift in Sources */,
 				DA9820BA27F626AD00D4410B /* SceneDelegate.swift in Sources */,
