@@ -12,9 +12,7 @@ class CountryTableViewCell: UITableViewCell {
     @IBOutlet weak var flagImage: UIImageView!
     
     @IBOutlet weak var countryName: UILabel!
-    
 }
-
 
 class CountriesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -68,6 +66,10 @@ class CountriesListViewController: UIViewController, UITableViewDelegate, UITabl
         return x
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "showCountryDetailsFromAll", sender: nil)
+    }
 
 }
 
