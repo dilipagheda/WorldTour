@@ -1,4 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DBBorderingCountry" representedClassName="DBBorderingCountry" syncable="YES" codeGenerationType="class">
+        <attribute name="alpha3Code" optional="YES" attributeType="String"/>
+        <relationship name="country" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBCountry" inverseName="borderingCountries" inverseEntity="DBCountry"/>
+    </entity>
+    <entity name="DBCountry" representedClassName="DBCountry" syncable="YES" codeGenerationType="class">
+        <attribute name="alpha2Code" optional="YES" attributeType="String"/>
+        <attribute name="alpha3Code" optional="YES" attributeType="String"/>
+        <attribute name="area" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="capital" optional="YES" attributeType="String"/>
+        <attribute name="currencyCode" optional="YES" attributeType="String"/>
+        <attribute name="currencyName" optional="YES" attributeType="String"/>
+        <attribute name="currencySymbol" optional="YES" attributeType="String"/>
+        <attribute name="flag" optional="YES" attributeType="Binary"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="nativeName" optional="YES" attributeType="String"/>
+        <attribute name="popularLanguage" optional="YES" attributeType="String"/>
+        <attribute name="population" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="region" optional="YES" attributeType="String"/>
+        <attribute name="subregion" optional="YES" attributeType="String"/>
+        <relationship name="borderingCountries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBBorderingCountry" inverseName="country" inverseEntity="DBBorderingCountry"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBPhotos" inverseName="country" inverseEntity="DBPhotos"/>
+        <relationship name="weather" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DBWeather" inverseName="country" inverseEntity="DBWeather"/>
+    </entity>
+    <entity name="DBPhotos" representedClassName="DBPhotos" syncable="YES" codeGenerationType="class">
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <relationship name="country" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBCountry" inverseName="photos" inverseEntity="DBCountry"/>
+    </entity>
+    <entity name="DBWeather" representedClassName="DBWeather" syncable="YES" codeGenerationType="class">
+        <attribute name="datetime" optional="YES" attributeType="String"/>
+        <attribute name="icon" optional="YES" attributeType="String"/>
+        <attribute name="isCurrentWeather" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="temp" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="weatherDescription" optional="YES" attributeType="String"/>
+        <relationship name="country" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DBCountry" inverseName="weather" inverseEntity="DBCountry"/>
+    </entity>
+    <elements>
+        <element name="DBCountry" positionX="-63" positionY="-18" width="128" height="329"/>
+        <element name="DBBorderingCountry" positionX="-54" positionY="108" width="128" height="59"/>
+        <element name="DBWeather" positionX="-36" positionY="153" width="128" height="119"/>
+        <element name="DBPhotos" positionX="-18" positionY="171" width="128" height="59"/>
+    </elements>
 </model>
