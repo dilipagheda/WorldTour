@@ -104,8 +104,6 @@ class NetworkService {
     
     public func getPhotosByKeyword(keyword: String, completion: @escaping ([Data]?, String?) -> Void) {
         
-        //let urlString = "https://pixabay.com/api/?key=17840818-48ce838c22eb5fa37ac01548d&q=\(keyword)"
-        
         var urlParams = URLComponents(string: "https://pixabay.com/api/")!
         urlParams.queryItems = [
             URLQueryItem(name: "key", value: "17840818-48ce838c22eb5fa37ac01548d"),
@@ -125,6 +123,34 @@ class NetworkService {
                             (data) in
                             completion(data, nil)
                         }
+                    }
+                    
+                case let .failure(error):
+                    print(error)
+                    completion(nil, error.errorDescription)
+                }
+            }
+    }
+    
+    public func getCurrentWeather(lat: Double, lon: Double, completion: @escaping (Weather?, String?) -> Void) {
+        
+        var urlParams = URLComponents(string: "https://api.weatherbit.io/v2.0/current/")!
+        urlParams.queryItems = [
+            URLQueryItem(name: "key", value: "a437de08526e487b9af1ebf0ffbbc574"),
+            URLQueryItem(name: "lat", value: "\(lat)"),
+            URLQueryItem(name: "lon", value: "\(lon)"),
+        ]
+        
+        let s = urlParams.url!.absoluteString
+
+        AF.request(s)
+            .validate()
+            .responseDecodable(of: Weather.self) {
+                response in
+                switch response.result {
+                case .success:
+                    if let value = response.value {
+                        completion(value, nil)
                     }
                     
                 case let .failure(error):

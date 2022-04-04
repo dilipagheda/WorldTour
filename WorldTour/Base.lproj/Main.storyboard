@@ -494,10 +494,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="QOb-JR-Ae3">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XZb-eh-eDX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="QOb-JR-Ae3" firstAttribute="centerX" secondItem="tGN-eI-PgZ" secondAttribute="centerX" id="27b-G6-HjU"/>
                             <constraint firstItem="ZcY-Iw-pge" firstAttribute="trailing" secondItem="XZb-eh-eDX" secondAttribute="trailing" id="5Pn-ip-Skn"/>
                             <constraint firstItem="ZcY-Iw-pge" firstAttribute="top" secondItem="XZb-eh-eDX" secondAttribute="top" constant="10" id="6KS-SH-XRp"/>
                             <constraint firstItem="XZb-eh-eDX" firstAttribute="bottom" secondItem="en1-gr-qWu" secondAttribute="bottom" id="BDu-3p-A0f"/>
@@ -509,6 +514,7 @@
                             <constraint firstItem="4jQ-jm-UOB" firstAttribute="top" secondItem="Jnm-zb-f2e" secondAttribute="bottom" id="X82-fK-RlM"/>
                             <constraint firstItem="1A9-OB-cAq" firstAttribute="leading" secondItem="XZb-eh-eDX" secondAttribute="leading" id="Xen-pc-BeE"/>
                             <constraint firstItem="en1-gr-qWu" firstAttribute="top" secondItem="dPB-xG-Six" secondAttribute="bottom" id="ZCc-IF-smb"/>
+                            <constraint firstItem="QOb-JR-Ae3" firstAttribute="centerY" secondItem="tGN-eI-PgZ" secondAttribute="centerY" id="a5z-qn-jiL"/>
                             <constraint firstItem="dPB-xG-Six" firstAttribute="centerX" secondItem="ZcY-Iw-pge" secondAttribute="centerX" id="cus-bC-To5"/>
                             <constraint firstItem="Jnm-zb-f2e" firstAttribute="centerX" secondItem="tGN-eI-PgZ" secondAttribute="centerX" id="f7u-sw-wKg"/>
                             <constraint firstItem="1A9-OB-cAq" firstAttribute="centerX" secondItem="ZcY-Iw-pge" secondAttribute="centerX" id="fqh-yn-zE6"/>
@@ -520,7 +526,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="NBH-fq-2F3"/>
                     <connections>
+                        <outlet property="activityView" destination="QOb-JR-Ae3" id="gVu-RR-rDA"/>
+                        <outlet property="capitalLabel" destination="1A9-OB-cAq" id="kdm-3b-X8x"/>
+                        <outlet property="currentWeatherDescriptionLabel" destination="4jQ-jm-UOB" id="h4K-h1-ZeW"/>
+                        <outlet property="currentWeatherTemp" destination="dPB-xG-Six" id="Deo-Py-0w2"/>
+                        <outlet property="staticLabel" destination="ZcY-Iw-pge" id="6bL-9m-AEm"/>
                         <outlet property="tableView" destination="en1-gr-qWu" id="EcG-UH-dt3"/>
+                        <outlet property="weatherIconImageView" destination="Jnm-zb-f2e" id="pb9-zc-j36"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBL-ky-Egq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

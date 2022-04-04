@@ -23,8 +23,30 @@ class WeatherTableCell: UITableViewCell {
 class WeatherViewController :UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var dbCountry: DBCountry?
+    var currentDBWeather: DBWeather?
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var capitalLabel: UILabel!
+    
+    @IBOutlet weak var weatherIconImageView: UIImageView!
+    
+    @IBOutlet weak var currentWeatherDescriptionLabel: UILabel!
+
+    @IBOutlet weak var currentWeatherTemp: UILabel!
+    
+    @IBOutlet weak var activityView: UIActivityIndicatorView!
+    
+    @IBOutlet weak var staticLabel: UILabel!
+    
+    func updateUI(isLoading: Bool) {
+        tableView.isHidden = isLoading
+        capitalLabel.isHidden = isLoading
+        weatherIconImageView.isHidden = isLoading
+        currentWeatherDescriptionLabel.isHidden = isLoading
+        currentWeatherTemp.isHidden = isLoading
+        staticLabel.isHidden = isLoading
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +54,24 @@ class WeatherViewController :UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         tableView.delegate = self
         
+        activityView.startAnimating()
+        updateUI(isLoading: true)
+        
+        ViewModelProvider.shared.getCurrentWeather(dbCountry: dbCountry!) {
+            (dbWeather, errorMessage) in
+            guard let dbWeather = dbWeather else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.activityView.stopAnimating()
+                self.updateUI(isLoading: false)
+                self.capitalLabel.text = self.dbCountry!.capital
+                self.weatherIconImageView.image = UIImage(named: dbWeather.icon!)
+                self.currentWeatherTemp.text = "\(dbWeather.temp)º"
+                self.currentWeatherDescriptionLabel.text = dbWeather.weatherDescription
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

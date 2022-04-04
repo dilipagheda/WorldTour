@@ -262,6 +262,53 @@ class DataService {
             photo.country = dbCountry
             appDelegate.saveContext()
         }
-    
     }
+
+    public func addCurrentWeatherToCountry(dbCountry: DBCountry, weather: Weather) {
+        
+        guard let viewContext = viewContext, let appDelegate = appDelegate else {
+            return
+        }
+        
+        let weatherInfo = weather.data[0].weather
+        
+        let dbWeather = DBWeather(context: viewContext)
+        dbWeather.country = dbCountry
+        dbWeather.datetime = weather.data[0].datetime
+        dbWeather.icon = weatherInfo.icon
+        dbWeather.isCurrentWeather = true
+        dbWeather.temp = weather.data[0].temp
+        dbWeather.weatherDescription = weatherInfo.description
+        appDelegate.saveContext()
+    }
+    
+    public func getCurrentWeatherByDBCountry(dbCountry: DBCountry) -> DBWeather? {
+        
+        guard let viewContext = viewContext else {
+            return nil
+        }
+        
+        let fetchRequest = NSFetchRequest<DBWeather>(entityName: "DBWeather")
+        
+        let predicate1 = NSPredicate(format: "country == %@", dbCountry)
+        let predicate2 = NSPredicate(format: "isCurrentWeather == %d", true)
+
+        let p = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
+
+        fetchRequest.predicate = p
+        
+        do {
+            let dbWeatherRecords = try viewContext.fetch(fetchRequest)
+
+            if(dbWeatherRecords.isEmpty) {
+                return nil
+            }
+            
+            return dbWeatherRecords[0]
+        }catch{
+            print(error.localizedDescription)
+        }
+        return nil
+    }
+    
 }
