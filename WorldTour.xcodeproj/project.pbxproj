@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA813D3627F9764D00DB9E31 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA813D3527F9764D00DB9E31 /* DataService.swift */; };
 		DA9820B827F626AD00D4410B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9820B727F626AD00D4410B /* AppDelegate.swift */; };
 		DA9820BA27F626AD00D4410B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9820B927F626AD00D4410B /* SceneDelegate.swift */; };
 		DA9820BC27F626AD00D4410B /* CountriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9820BB27F626AD00D4410B /* CountriesListViewController.swift */; };
@@ -28,6 +29,7 @@
 		0C8AA76E446DC9C10AFE86DE /* Pods-WorldTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTour.release.xcconfig"; path = "Target Support Files/Pods-WorldTour/Pods-WorldTour.release.xcconfig"; sourceTree = "<group>"; };
 		5FD97F1685455FA0FC3C7158 /* libPods-WorldTour.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WorldTour.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C482A8E02CBCB6FC2F84EC74 /* Pods-WorldTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTour.debug.xcconfig"; path = "Target Support Files/Pods-WorldTour/Pods-WorldTour.debug.xcconfig"; sourceTree = "<group>"; };
+		DA813D3527F9764D00DB9E31 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		DA9820B427F626AD00D4410B /* WorldTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9820B727F626AD00D4410B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA9820B927F626AD00D4410B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA813D3427F9763900DB9E31 /* DataService */ = {
+			isa = PBXGroup;
+			children = (
+				DA813D3527F9764D00DB9E31 /* DataService.swift */,
+			);
+			path = DataService;
+			sourceTree = "<group>";
+		};
 		DA9820AB27F626AD00D4410B = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 		DA9820B627F626AD00D4410B /* WorldTour */ = {
 			isa = PBXGroup;
 			children = (
+				DA813D3427F9763900DB9E31 /* DataService */,
 				DA9820D727F65CF100D4410B /* ViewModelProvider */,
 				DA9820D627F65C5100D4410B /* ViewControllers */,
 				DA9820CF27F630F600D4410B /* NetworkService */,
@@ -263,6 +274,7 @@
 				DA9820D527F6323800D4410B /* Country.swift in Sources */,
 				DA9820DF27F8536600D4410B /* WeatherViewController.swift in Sources */,
 				DA9820D327F6318E00D4410B /* NetworkService.swift in Sources */,
+				DA813D3627F9764D00DB9E31 /* DataService.swift in Sources */,
 				DA9820DD27F8277D00D4410B /* DetailsViewController.swift in Sources */,
 				DA9820C227F626AD00D4410B /* WorldTour.xcdatamodeld in Sources */,
 				DA9820DB27F7C0D700D4410B /* FavoriteCountriesListViewController.swift in Sources */,

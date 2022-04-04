@@ -25,13 +25,17 @@ class Language: Codable {
 
 class Country: Codable {
     let alpha3Code: String
+    let alpha2Code: String
     let name: String
     let nativeName: String
     let capital: String?
     let subregion: String
     let region: String
-    let population: UInt64
+    let population: Int64
+    let latlng: [Double]?
+    let area: Double?
     let flags: Flag
+    var flagPNGImage: Data?
     let currencies: [Currency]?
     let languages: [Language]
     let borders: [String]?

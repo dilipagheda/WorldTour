@@ -20,7 +20,7 @@ class FavoriteCountriesListViewController: UIViewController, UITableViewDelegate
 
     
 
-    var favoriteCountriesList: [CountryViewModel] {
+    var favoriteCountriesList: [DBCountry] {
         return ViewModelProvider.shared.getFavoriteCountriesList()
     }
     
@@ -43,12 +43,12 @@ class FavoriteCountriesListViewController: UIViewController, UITableViewDelegate
 
         if let cell = cell {
             
-            cell.flagImage.image = UIImage(data: favoriteCountriesList[indexPath.row].flag)
+            cell.flagImage.image = UIImage(data: favoriteCountriesList[indexPath.row].flag!)
             cell.countryName.text = favoriteCountriesList[indexPath.row].name
             return cell
         }else{
             let newCell = FavoriteTableViewCell()
-            newCell.flagImage.image = UIImage(data: favoriteCountriesList[indexPath.row].flag)
+            newCell.flagImage.image = UIImage(data: favoriteCountriesList[indexPath.row].flag!)
             newCell.countryName.text = favoriteCountriesList[indexPath.row].name
             return newCell
         }

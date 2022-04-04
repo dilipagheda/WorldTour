@@ -16,9 +16,7 @@ class CountryTableViewCell: UITableViewCell {
 
 class CountriesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var countriesList: [[String: [CountryViewModel]]] {
-        return ViewModelProvider.shared.getCountriesList()
-    }
+    var countriesList: [[String: [DBCountry]]] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,6 +25,20 @@ class CountriesListViewController: UIViewController, UITableViewDelegate, UITabl
 
         tableView.dataSource = self
         tableView.delegate = self
+        
+        ViewModelProvider.shared.getCountriesList() {
+            (dictArray, errorMessage) in
+            if let dictArray = dictArray {
+                self.countriesList = dictArray
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                return
+            }
+            if let errorMessage = errorMessage {
+                //TODO: Alert error message here
+            }
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,12 +60,12 @@ class CountriesListViewController: UIViewController, UITableViewDelegate, UITabl
 
         if let cell = cell {
             
-            cell.flagImage.image = UIImage(data: countryViewModelRecord.flag)
+            cell.flagImage.image = UIImage(data: countryViewModelRecord.flag!)
             cell.countryName.text = countryViewModelRecord.name
             return cell
         }else{
             let newCell = CountryTableViewCell()
-            newCell.flagImage.image = UIImage(data: countryViewModelRecord.flag)
+            newCell.flagImage.image = UIImage(data: countryViewModelRecord.flag!)
             newCell.countryName.text = countryViewModelRecord.name
             return newCell
         }
