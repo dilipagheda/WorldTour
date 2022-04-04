@@ -175,7 +175,25 @@ class ViewModelProvider {
         }
     }
     
-    public func getCurrentWeather(dbCountry: DBCountry, completion: @escaping (DBWeather?, String?) -> Void) {
+    public func getCurrentWeather(dbCountry: DBCountry, shouldRefresh: Bool ,completion: @escaping (DBWeather?, String?) -> Void) {
+        
+        if(shouldRefresh) {
+            
+            NetworkService.shared.getCurrentWeather(lat: dbCountry.lat, lon: dbCountry.lon) {
+                (weather, errorMessage) in
+                guard let weather = weather else {
+                    completion(nil, errorMessage)
+                    return
+                }
+
+                DataService.shared.addCurrentWeatherToCountry(dbCountry: dbCountry, weather: weather)
+                let currentDBWeather = DataService.shared.getCurrentWeatherByDBCountry(dbCountry: dbCountry)
+                completion(currentDBWeather, nil)
+                return
+            }
+            
+            return
+        }
         
         let currentDBWeather = DataService.shared.getCurrentWeatherByDBCountry(dbCountry: dbCountry)
         

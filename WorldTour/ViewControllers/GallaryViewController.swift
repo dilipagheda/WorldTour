@@ -41,8 +41,10 @@ class GallaryViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.activityView.stopAnimating()
                 }
             }
-            
-            //TODO: show error alert
+
+            if let errorMessage = errorMessage {
+                print(errorMessage)
+            }
         }
     }
     

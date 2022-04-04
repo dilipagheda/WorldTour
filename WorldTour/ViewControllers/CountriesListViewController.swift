@@ -41,7 +41,7 @@ class CountriesListViewController: UIViewController, UITableViewDelegate, UITabl
                 return
             }
             if let errorMessage = errorMessage {
-                //TODO: Alert error message here
+                print(errorMessage)
             }
         }
     }
@@ -79,7 +79,6 @@ class CountriesListViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let x =  countriesList[section].values.first!.count
-        debugPrint("rows in section \(section) is \(x)")
         return x
     }
     

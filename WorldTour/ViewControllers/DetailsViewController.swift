@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 
-//"20º"
-
 class BorderCountryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var countryFlagImage: UIImageView!
