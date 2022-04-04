@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA1166DF27FB02600013221D /* Pixabay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1166DE27FB02600013221D /* Pixabay.swift */; };
 		DA813D3627F9764D00DB9E31 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA813D3527F9764D00DB9E31 /* DataService.swift */; };
 		DA9820B827F626AD00D4410B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9820B727F626AD00D4410B /* AppDelegate.swift */; };
 		DA9820BA27F626AD00D4410B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9820B927F626AD00D4410B /* SceneDelegate.swift */; };
@@ -29,6 +30,7 @@
 		0C8AA76E446DC9C10AFE86DE /* Pods-WorldTour.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTour.release.xcconfig"; path = "Target Support Files/Pods-WorldTour/Pods-WorldTour.release.xcconfig"; sourceTree = "<group>"; };
 		5FD97F1685455FA0FC3C7158 /* libPods-WorldTour.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WorldTour.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C482A8E02CBCB6FC2F84EC74 /* Pods-WorldTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTour.debug.xcconfig"; path = "Target Support Files/Pods-WorldTour/Pods-WorldTour.debug.xcconfig"; sourceTree = "<group>"; };
+		DA1166DE27FB02600013221D /* Pixabay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixabay.swift; sourceTree = "<group>"; };
 		DA813D3527F9764D00DB9E31 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		DA9820B427F626AD00D4410B /* WorldTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9820B727F626AD00D4410B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				DA9820D427F6323800D4410B /* Country.swift */,
+				DA1166DE27FB02600013221D /* Pixabay.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				DA9820C227F626AD00D4410B /* WorldTour.xcdatamodeld in Sources */,
 				DA9820DB27F7C0D700D4410B /* FavoriteCountriesListViewController.swift in Sources */,
 				DA9820E227F862B400D4410B /* GallaryViewController.swift in Sources */,
+				DA1166DF27FB02600013221D /* Pixabay.swift in Sources */,
 				DA9820BC27F626AD00D4410B /* CountriesListViewController.swift in Sources */,
 				DA9820B827F626AD00D4410B /* AppDelegate.swift in Sources */,
 				DA9820BA27F626AD00D4410B /* SceneDelegate.swift in Sources */,

@@ -22,6 +22,8 @@ class WeatherTableCell: UITableViewCell {
 
 class WeatherViewController :UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var dbCountry: DBCountry?
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {

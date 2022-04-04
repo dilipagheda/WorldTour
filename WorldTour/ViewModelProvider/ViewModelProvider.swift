@@ -138,4 +138,40 @@ class ViewModelProvider {
     public func setFavoriteCountry(dbCountry: DBCountry, isFavorite: Bool) {
         DataService.shared.setFavoriteCountry(dbCountry: dbCountry, isFavorite: isFavorite)
     }
+    
+    public func getPhotosByCountry(dbCountry: DBCountry, completion: @escaping ([DBPhoto]?, String?) -> Void) {
+     
+        let allDBPhotos = DataService.shared.getDBPhotosByDBCountry(dbCountry: dbCountry)
+        
+        if(!allDBPhotos.isEmpty) {
+            completion(allDBPhotos, nil)
+            return
+        }
+        
+        var keyword = ""
+        if(dbCountry.capital != nil) {
+            keyword = dbCountry.capital!
+        }else if(dbCountry.name != nil) {
+            keyword = dbCountry.name!
+        }else{
+            keyword = "flowers"
+        }
+        
+        NetworkService.shared.getPhotosByKeyword(keyword: keyword) {
+            (data, errorMessage) in
+            if let data = data {
+                DataService.shared.addAllPhotosToCountry(dbCountry: dbCountry , data: data)
+                let allDBPhotos = DataService.shared.getDBPhotosByDBCountry(dbCountry: dbCountry)
+                completion(allDBPhotos, nil)
+                return
+            }else{
+                if let errorMessage = errorMessage {
+                    completion(nil, errorMessage)
+                }else{
+                    completion(nil, "Sorry! Something went wrong!")
+                }
+
+            }
+        }
+    }
 }

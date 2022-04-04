@@ -391,6 +391,7 @@
                         <outlet property="flagImageView" destination="ogc-vl-F4x" id="nkq-3M-hjC"/>
                         <outlet property="tableView" destination="YAY-98-BNp" id="jhg-Lp-CXn"/>
                         <segue destination="Ixy-il-jFF" kind="show" identifier="showWeather" id="Dtf-CX-ntV"/>
+                        <segue destination="ZVB-4a-hxz" kind="show" identifier="showGallary" id="IjX-wD-HLn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtB-k2-K5x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -535,7 +536,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UHc-XW-gtb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="gallaryCell" id="Rje-WF-Pbi" customClass="GallaryViewCell" customModule="WorldTour" customModuleProvider="target">
@@ -565,23 +566,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="F20-i9-ATf">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JNY-C5-V0o"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="F20-i9-ATf" firstAttribute="centerY" secondItem="qKH-bC-9nZ" secondAttribute="centerY" id="FRv-J3-JSW"/>
                             <constraint firstItem="UHc-XW-gtb" firstAttribute="leading" secondItem="JNY-C5-V0o" secondAttribute="leading" id="HBe-YO-gtw"/>
+                            <constraint firstItem="F20-i9-ATf" firstAttribute="centerX" secondItem="qKH-bC-9nZ" secondAttribute="centerX" id="Ixe-WM-aLj"/>
                             <constraint firstItem="UHc-XW-gtb" firstAttribute="top" secondItem="JNY-C5-V0o" secondAttribute="top" id="P5A-Ut-Q3Q"/>
                             <constraint firstItem="JNY-C5-V0o" firstAttribute="trailing" secondItem="UHc-XW-gtb" secondAttribute="trailing" id="pig-Qn-b0L"/>
                             <constraint firstItem="JNY-C5-V0o" firstAttribute="bottom" secondItem="UHc-XW-gtb" secondAttribute="bottom" id="v0R-f9-aAJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ndd-pr-RrY"/>
                     <connections>
+                        <outlet property="activityView" destination="F20-i9-ATf" id="OKr-fl-RZe"/>
                         <outlet property="tableView" destination="UHc-XW-gtb" id="d1T-gv-gIX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BKI-X9-vh5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3406" y="106"/>
+            <point key="canvasLocation" x="3406" y="121"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hX0-0d-SWu">

@@ -16,30 +16,52 @@ class GallaryViewCell: UITableViewCell {
 
 class GallaryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var dbCountry: DBCountry?
+    
+    var photos: [DBPhoto] = []
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var activityView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        activityView.startAnimating()
+        
+        ViewModelProvider.shared.getPhotosByCountry(dbCountry: dbCountry!) {
+            (photos, errorMessage) in
+            if let photos = photos {
+                DispatchQueue.main.async {
+                    self.photos = photos
+                    self.tableView.reloadData()
+                    self.activityView.stopAnimating()
+                }
+            }
+            
+            //TODO: show error alert
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return photos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "gallaryCell") as? GallaryViewCell
+        let photo = self.photos[indexPath.row]
         
         if let cell = cell {
-            cell.gallaryImage.image = UIImage(named: "testimage")
+            cell.gallaryImage.image = UIImage(data: photo.image!)
             return cell
             
         }else{
             let newCell = GallaryViewCell()
-            newCell.gallaryImage.image = UIImage(named: "testimage")
+            newCell.gallaryImage.image = UIImage(data: photo.image!)
             return newCell
         }
     }

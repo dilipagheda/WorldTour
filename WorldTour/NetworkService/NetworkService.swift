@@ -14,15 +14,13 @@ class NetworkService {
     
     private init() {}
 
-    private func getFlagImage(flagImageUrl: String, completion: @escaping (Data?, String?) -> Void) {
-        AF.request(flagImageUrl)
+    private func getImage(imageUrl: String, completion: @escaping (Data?, String?) -> Void) {
+        AF.request(imageUrl)
             .validate()
             .response() {
                 response in
                 switch response.result {
                 case .success:
-                    print("Validation Successful")
-                    
                     if let value = response.value {
                         completion(value, nil)
                     }
@@ -68,7 +66,7 @@ class NetworkService {
                 return
             }
             
-            self.getFlagImage(flagImageUrl: countries[index].flags.png) {
+            self.getImage(imageUrl: countries[index].flags.png) {
                 (data, errorMessage) in
                 if let data = data {
                     countries[index].flagPNGImage = data
@@ -78,5 +76,61 @@ class NetworkService {
         }
         
         fetchCountryFlag(index: 0)
+    }
+    
+    private func fetchAllPhotosData(hits: [Hits], completion: @escaping ([Data])->Void) {
+        
+        let total = hits.count
+        var photosData: [Data] = []
+        
+        func fetchPhotoData(index: Int) {
+            
+            if(index >= total) {
+                completion(photosData)
+                return
+            }
+            
+            self.getImage(imageUrl: hits[index].webformatURL) {
+                (data, errorMessage) in
+                if let data = data {
+                    photosData.append(data)
+                    fetchPhotoData(index: index + 1)
+                }
+            }
+        }
+        
+        fetchPhotoData(index: 0)
+    }
+    
+    public func getPhotosByKeyword(keyword: String, completion: @escaping ([Data]?, String?) -> Void) {
+        
+        //let urlString = "https://pixabay.com/api/?key=17840818-48ce838c22eb5fa37ac01548d&q=\(keyword)"
+        
+        var urlParams = URLComponents(string: "https://pixabay.com/api/")!
+        urlParams.queryItems = [
+            URLQueryItem(name: "key", value: "17840818-48ce838c22eb5fa37ac01548d"),
+            URLQueryItem(name: "q", value: keyword)
+        ]
+        
+        let s = urlParams.url!.absoluteString
+        
+        AF.request(s)
+            .validate()
+            .responseDecodable(of: Pixabay.self) {
+                response in
+                switch response.result {
+                case .success:
+                    if let value = response.value {
+                        self.fetchAllPhotosData(hits: value.hits) {
+                            (data) in
+                            completion(data, nil)
+                        }
+                    }
+                    
+                case let .failure(error):
+                    print(error)
+                    completion(nil, error.errorDescription)
+                }
+            }
     }
 }

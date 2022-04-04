@@ -228,5 +228,40 @@ class DataService {
         return
 
     }
-   
+    
+    public func getDBPhotosByDBCountry(dbCountry: DBCountry) -> [DBPhoto] {
+        
+        guard let viewContext = viewContext else {
+            return []
+        }
+        
+        let fetchRequest = NSFetchRequest<DBPhoto>(entityName: "DBPhoto")
+        
+        let predicate = NSPredicate(format: "country == %@", dbCountry)
+
+        fetchRequest.predicate = predicate
+        
+        do {
+            let dbPhotos = try viewContext.fetch(fetchRequest)
+            return dbPhotos
+        }catch{
+            print(error.localizedDescription)
+        }
+        return []
+    }
+ 
+    public func addAllPhotosToCountry(dbCountry: DBCountry, data: [Data]) {
+        
+        guard let viewContext = viewContext, let appDelegate = appDelegate else {
+            return
+        }
+
+        for d in data {
+            let photo = DBPhoto(context: viewContext)
+            photo.image = d
+            photo.country = dbCountry
+            appDelegate.saveContext()
+        }
+    
+    }
 }

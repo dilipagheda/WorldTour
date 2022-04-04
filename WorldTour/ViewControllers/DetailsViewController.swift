@@ -112,12 +112,30 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     @IBAction func onTapWeatherButton(_ sender: Any) {
             
-        performSegue(withIdentifier: "showWeather", sender: nil)
+        performSegue(withIdentifier: "showWeather", sender: self.dbCountry)
 
     }
     
     @IBAction func onTapGallaryButton(_ sender: Any) {
         
+        performSegue(withIdentifier: "showGallary", sender: self.dbCountry)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "showWeather") {
+            let vc = segue.destination as! WeatherViewController
+            if let sender = sender {
+                vc.dbCountry = sender as? DBCountry
+            }
+        }
+        
+        if(segue.identifier == "showGallary") {
+            let vc = segue.destination as! GallaryViewController
+            if let sender = sender {
+                vc.dbCountry = sender as? DBCountry
+            }
+        }
     }
     
     //Table View

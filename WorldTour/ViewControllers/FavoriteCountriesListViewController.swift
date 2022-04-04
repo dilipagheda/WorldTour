@@ -65,5 +65,24 @@ class FavoriteCountriesListViewController: UIViewController, UITableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favoriteCountriesList.count
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let row = indexPath.row
+        let dbCountry = favoriteCountriesList[row]
+        performSegue(withIdentifier: "showCountryDetailsFromFav", sender: dbCountry)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "showCountryDetailsFromFav") {
+            let vc = segue.destination as! DetailsViewController
+            if let sender = sender {
+                vc.dbCountry = sender as? DBCountry
+            }
+        }
+    }
+   
+    
 }
 
