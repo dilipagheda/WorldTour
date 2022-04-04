@@ -6,6 +6,8 @@ table view.
 # Instructions 
 
 ## How to build
+- Make sure that cocoapods is installed in your Mac.
+- Run pod install
 - Open WorldTour.xcworkspace in xcode.
 - Click Product Menu and Select Build Option.
 
