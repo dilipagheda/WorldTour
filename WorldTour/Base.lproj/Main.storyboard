@@ -82,18 +82,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You do not have any favorites!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFv-1A-5E9" userLabel="noFavMessage">
+                                <rect key="frame" x="122" y="441" width="170" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iW6-by-hzo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iW6-by-hzo" firstAttribute="trailing" secondItem="3Xn-nr-qaK" secondAttribute="trailing" id="7Sg-on-vzg"/>
+                            <constraint firstItem="UFv-1A-5E9" firstAttribute="centerX" secondItem="1mj-ml-9UL" secondAttribute="centerX" id="9lT-TN-Lmu"/>
                             <constraint firstItem="3Xn-nr-qaK" firstAttribute="leading" secondItem="iW6-by-hzo" secondAttribute="leading" id="fan-5o-Wvo"/>
+                            <constraint firstItem="UFv-1A-5E9" firstAttribute="centerY" secondItem="1mj-ml-9UL" secondAttribute="centerY" id="xZv-TE-iVE"/>
                             <constraint firstItem="3Xn-nr-qaK" firstAttribute="top" secondItem="iW6-by-hzo" secondAttribute="top" id="ycf-4Z-kvq"/>
                             <constraint firstItem="iW6-by-hzo" firstAttribute="bottom" secondItem="3Xn-nr-qaK" secondAttribute="bottom" id="zJz-0V-OOM"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorite Countries" image="heart.text.square" catalog="system" id="mpN-xc-F4l"/>
                     <connections>
+                        <outlet property="noFavLabel" destination="UFv-1A-5E9" id="7ae-YO-84c"/>
                         <outlet property="tableView" destination="3Xn-nr-qaK" id="zHX-UP-MgP"/>
                         <segue destination="9K4-se-YWC" kind="show" identifier="showCountryDetailsFromFav" id="f4A-9t-LEv"/>
                     </connections>
@@ -595,7 +604,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gbf-uW-oat"/>
+        <segue reference="f4A-9t-LEv"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="a02d" width="120" height="120"/>

@@ -22,6 +22,8 @@ class FavoriteCountriesListViewController: UIViewController, UITableViewDelegate
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var noFavLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +33,11 @@ class FavoriteCountriesListViewController: UIViewController, UITableViewDelegate
     
     override func viewWillAppear(_ animated: Bool) {
         self.favoriteCountriesList = ViewModelProvider.shared.getFavoriteCountriesList()
+        if(self.favoriteCountriesList.isEmpty) {
+            noFavLabel.isHidden = false
+        }else {
+            noFavLabel.isHidden = true
+        }
         tableView.reloadData()
     }
     
