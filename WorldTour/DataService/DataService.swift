@@ -148,6 +148,31 @@ class DataService {
         return nil
     }
     
+    public func getFavoriteDBCountries(isFavorite: Bool) -> [DBCountry]? {
+        
+        guard let viewContext = viewContext else {
+            return nil
+        }
+        
+        let fetchRequest = NSFetchRequest<DBCountry>(entityName: "DBCountry")
+
+        let predicate = NSPredicate(format: "isFavorite == %d", isFavorite)
+
+        fetchRequest.predicate = predicate
+        
+        do {
+            let dbCountries = try viewContext.fetch(fetchRequest)
+            
+            if(dbCountries.isEmpty) {
+                return nil
+            }
+            return dbCountries
+        }catch{
+            print(error.localizedDescription)
+        }
+        return nil
+    }
+    
     public func getBorderingCountryByDBCountry(dbCountry: DBCountry) -> [DBBorderingCountry]? {
 
         guard let viewContext = viewContext else {
@@ -171,6 +196,37 @@ class DataService {
             print(error.localizedDescription)
         }
         return nil
+    }
+    
+    public func setFavoriteCountry(dbCountry: DBCountry, isFavorite: Bool) {
+
+        guard let viewContext = viewContext, let appDelegate = appDelegate else {
+            return
+        }
+        
+        guard let alpha3Code = dbCountry.alpha3Code else {
+            return
+        }
+        
+        let fetchRequest = NSFetchRequest<DBCountry>(entityName: "DBCountry")
+
+        let predicate = NSPredicate(format: "alpha3Code == %@", alpha3Code)
+
+        fetchRequest.predicate = predicate
+        
+        do {
+            let dbCountries = try viewContext.fetch(fetchRequest)
+            
+            if(dbCountries.isEmpty) {
+                return
+            }
+            dbCountries[0].isFavorite = isFavorite
+            appDelegate.saveContext()
+        }catch{
+            print(error.localizedDescription)
+        }
+        return
+
     }
    
 }

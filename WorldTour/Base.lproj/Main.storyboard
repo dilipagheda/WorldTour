@@ -139,7 +139,6 @@
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="T6i-Hu-Mma" firstAttribute="leading" secondItem="PGa-Wx-uzg" secondAttribute="leading" constant="10" id="OtK-7y-Ib5"/>
                                                         <constraint firstAttribute="trailing" secondItem="VHP-jD-TFL" secondAttribute="trailing" id="X2I-gv-3Bv"/>
                                                         <constraint firstItem="VHP-jD-TFL" firstAttribute="leading" secondItem="T6i-Hu-Mma" secondAttribute="trailing" constant="20" id="mzD-a1-DrQ"/>
                                                     </constraints>
@@ -159,18 +158,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Wq3-wc-p9s">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KUB-9M-dzk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KUB-9M-dzk" firstAttribute="trailing" secondItem="al8-sR-KUY" secondAttribute="trailing" id="4oL-C7-MfV"/>
+                            <constraint firstItem="Wq3-wc-p9s" firstAttribute="centerY" secondItem="Qm3-bT-m1a" secondAttribute="centerY" id="UJo-7I-vJd"/>
                             <constraint firstItem="al8-sR-KUY" firstAttribute="leading" secondItem="KUB-9M-dzk" secondAttribute="leading" id="UV4-qm-l8B"/>
                             <constraint firstItem="KUB-9M-dzk" firstAttribute="bottom" secondItem="al8-sR-KUY" secondAttribute="bottom" id="cVS-tt-zre"/>
                             <constraint firstItem="al8-sR-KUY" firstAttribute="top" secondItem="KUB-9M-dzk" secondAttribute="top" id="dUx-lg-IC2"/>
+                            <constraint firstItem="Wq3-wc-p9s" firstAttribute="centerX" secondItem="Qm3-bT-m1a" secondAttribute="centerX" id="qer-iw-nXm"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="All Countries" image="globe" catalog="system" id="jwP-bx-73l"/>
                     <connections>
+                        <outlet property="activityView" destination="Wq3-wc-p9s" id="Khr-g0-fvZ"/>
                         <outlet property="tableView" destination="al8-sR-KUY" id="raL-OG-MUZ"/>
                         <segue destination="9K4-se-YWC" kind="show" identifier="showCountryDetailsFromAll" id="gbf-uW-oat"/>
                     </connections>

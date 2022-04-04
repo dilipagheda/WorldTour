@@ -18,11 +18,7 @@ class FavoriteTableViewCell: UITableViewCell {
 
 class FavoriteCountriesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
-
-    var favoriteCountriesList: [DBCountry] {
-        return ViewModelProvider.shared.getFavoriteCountriesList()
-    }
+    var favoriteCountriesList: [DBCountry] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,6 +27,11 @@ class FavoriteCountriesListViewController: UIViewController, UITableViewDelegate
 
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.favoriteCountriesList = ViewModelProvider.shared.getFavoriteCountriesList()
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

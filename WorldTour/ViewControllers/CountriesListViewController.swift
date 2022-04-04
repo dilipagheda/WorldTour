@@ -20,17 +20,22 @@ class CountriesListViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var activityView: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
         
+        activityView.startAnimating()
+        
         ViewModelProvider.shared.getCountriesList() {
             (dictArray, errorMessage) in
             if let dictArray = dictArray {
                 self.countriesList = dictArray
                 DispatchQueue.main.async {
+                    self.activityView.stopAnimating()
                     self.tableView.reloadData()
                 }
                 return

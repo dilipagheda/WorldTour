@@ -103,6 +103,12 @@ class ViewModelProvider {
     
     public func getFavoriteCountriesList() -> [DBCountry] {
         
+        let favCountries = DataService.shared.getFavoriteDBCountries(isFavorite: true)
+        
+        if let favCountries = favCountries {
+            return favCountries
+        }
+        
         return []
     }
     
@@ -127,5 +133,9 @@ class ViewModelProvider {
             }
         }
         return borderingCountriesViewModel
+    }
+    
+    public func setFavoriteCountry(dbCountry: DBCountry, isFavorite: Bool) {
+        DataService.shared.setFavoriteCountry(dbCountry: dbCountry, isFavorite: isFavorite)
     }
 }

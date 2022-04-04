@@ -83,13 +83,31 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
                 collectionView.reloadData()
             }
 
+            //Favorite
+            updateFavButton(isFavorite: dbCountry.isFavorite)
         }
     }
+    
+    //Helpers
+    func updateFavButton(isFavorite: Bool) {
+        
+        if(isFavorite) {
+            self.favButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }else{
+            self.favButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+    }
+    
     
     //Action Handlers
     
     @IBAction func onTapFavButton(_ sender: Any) {
-        
+            
+        if let dbCountry = self.dbCountry {
+            let favFlag = !dbCountry.isFavorite
+            ViewModelProvider.shared.setFavoriteCountry(dbCountry: dbCountry, isFavorite: favFlag)
+            updateFavButton(isFavorite: favFlag)
+        }
     }
     
     @IBAction func onTapWeatherButton(_ sender: Any) {
