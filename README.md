@@ -23,14 +23,25 @@ Other Instructions
 - User can also mark a perticular country as a favorite country on a details page.
 - Favorite countries can be viewed from a Favorite tab.
 
-# Notes
+## Notes
 - Each network response is cached in a local database using Core Data.
 - If data is available through the cache, It is servered from there.
 - On weather view, user also has the ability to refresh the cached data.
 
-# Technology used
+## Technology used
+
+iOS / Swift 5, Core Data, UIKit, Alamofire, CocaoPods
+
 - I have built this project using native iOS with latest version of Swift (Swift 5)
 - I have used various UIKit components such as table view, collection view, images, labels, navigation controller, tab controller etc
 - I have used CORE DATA to save data locally
 - I have used CocaoPods to install 3rd Party Dependancy & have used Alamofire package for making network calls.
+
+## Endpoints Used
+I have used following publicly available APIs to put together this app.
+- Rest Countries - https://restcountries.com/v2/all
+- Weatherbit - http://api.weatherbit.io/
+- Pixabay - https://pixabay.com
+
+
 
