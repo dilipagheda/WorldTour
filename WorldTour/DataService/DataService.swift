@@ -72,6 +72,17 @@ class DataService {
             }
 
             dbCountry.flag = country.flagPNGImage
+            
+            if let borders = country.borders {
+
+                for border in borders {
+                    let dbBorderingCountry = DBBorderingCountry(context: viewContext)
+                    dbBorderingCountry.alpha3Code = border
+                    dbBorderingCountry.country = dbCountry
+                    appDelegate.saveContext()
+                }
+
+            }
 
             appDelegate.saveContext()
         }
@@ -110,6 +121,56 @@ class DataService {
         }catch{
             debugPrint(error)
         }
+    }
+    
+    public func getDBCountryByAlpha3Code(alpha3Code: String) -> DBCountry? {
+        
+        guard let viewContext = viewContext else {
+            return nil
+        }
+        
+        let fetchRequest = NSFetchRequest<DBCountry>(entityName: "DBCountry")
+
+        let predicate = NSPredicate(format: "alpha3Code == %@", alpha3Code)
+
+        fetchRequest.predicate = predicate
+        
+        do {
+            let dbCountries = try viewContext.fetch(fetchRequest)
+            
+            if(dbCountries.isEmpty) {
+                return nil
+            }
+            return dbCountries[0]
+        }catch{
+            print(error.localizedDescription)
+        }
+        return nil
+    }
+    
+    public func getBorderingCountryByDBCountry(dbCountry: DBCountry) -> [DBBorderingCountry]? {
+
+        guard let viewContext = viewContext else {
+            return nil
+        }
+        
+        let fetchRequest = NSFetchRequest<DBBorderingCountry>(entityName: "DBBorderingCountry")
+
+        let predicate = NSPredicate(format: "country == %@", dbCountry)
+
+        fetchRequest.predicate = predicate
+        
+        do {
+            let dbBorderingCountries = try viewContext.fetch(fetchRequest)
+            
+            if(dbBorderingCountries.isEmpty) {
+                return nil
+            }
+            return dbBorderingCountries
+        }catch{
+            print(error.localizedDescription)
+        }
+        return nil
     }
    
 }

@@ -8,6 +8,12 @@
 import Foundation
 import UIKit
 
+struct BorderingCountryViewModel {
+    let alpha3Code: String
+    let flagImage: Data?
+    let countryName: String
+}
+
 class ConvertToDictionaryArray {
     
     private let dbCountries: [DBCountry]
@@ -98,5 +104,28 @@ class ViewModelProvider {
     public func getFavoriteCountriesList() -> [DBCountry] {
         
         return []
+    }
+    
+    public func getBorderingCountries(dbCountry: DBCountry) -> [BorderingCountryViewModel] {
+
+        let borderingCountries = DataService.shared.getBorderingCountryByDBCountry(dbCountry: dbCountry)
+        
+        guard let borderingCountries = borderingCountries else {
+            return []
+        }
+        
+        var borderingCountriesViewModel: [BorderingCountryViewModel] = []
+        
+        for borderingCountry in borderingCountries {
+            
+            if let alpha3Code = borderingCountry.alpha3Code {
+                let dbCountry = DataService.shared.getDBCountryByAlpha3Code(alpha3Code: alpha3Code)
+                
+                let borderingCountryViewModel = BorderingCountryViewModel(alpha3Code: alpha3Code,  flagImage: dbCountry?.flag ?? nil, countryName: dbCountry?.name ?? "")
+                
+                borderingCountriesViewModel.append(borderingCountryViewModel)
+            }
+        }
+        return borderingCountriesViewModel
     }
 }

@@ -183,7 +183,7 @@
         <scene sceneID="6tR-cn-fKh">
             <objects>
                 <viewController id="9K4-se-YWC" customClass="DetailsViewController" customModule="WorldTour" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bBj-Cs-pGy">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="bBj-Cs-pGy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -191,9 +191,9 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="852"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J19-0K-Mrq">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="753.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="723"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="au" translatesAutoresizingMaskIntoConstraints="NO" id="ogc-vl-F4x">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderflag" translatesAutoresizingMaskIntoConstraints="NO" id="ogc-vl-F4x">
                                                 <rect key="frame" x="132" y="0.0" width="150" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="HPT-2T-4wM"/>
@@ -201,24 +201,27 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bye-21-5O9">
-                                                <rect key="frame" x="197" y="105" width="20.5" height="6.5"/>
+                                                <rect key="frame" x="197" y="105" width="20.5" height="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="heart" catalog="system"/>
+                                                <connections>
+                                                    <action selector="onTapFavButton:" destination="9K4-se-YWC" eventType="touchUpInside" id="HYh-zE-AB2"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Australia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfO-WO-vcR">
-                                                <rect key="frame" x="172.5" y="116.5" width="69.5" height="19.5"/>
+                                                <rect key="frame" x="172.5" y="110" width="69.5" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wonderful Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdm-5x-WB8">
-                                                <rect key="frame" x="145.5" y="141" width="123" height="17"/>
+                                                <rect key="frame" x="145.5" y="115" width="123" height="12.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YAY-98-BNp">
-                                                <rect key="frame" x="0.0" y="163" width="414" height="462.5"/>
+                                                <rect key="frame" x="0.0" y="132.5" width="414" height="462.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailsTableViewCell" textLabel="Cey-gf-AeB" detailTextLabel="e3i-01-xqw" style="IBUITableViewCellStyleValue1" id="3cS-OX-F8J">
@@ -248,13 +251,13 @@
                                                 </prototypes>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Border countries" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cS-r8-Suo">
-                                                <rect key="frame" x="150" y="630.5" width="114.5" height="18"/>
+                                                <rect key="frame" x="150" y="600" width="114.5" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xlZ-4V-v2k">
-                                                <rect key="frame" x="0.0" y="653.5" width="414" height="100"/>
+                                                <rect key="frame" x="0.0" y="623" width="414" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="U4W-uN-Miz"/>
@@ -283,9 +286,9 @@
                                                                                 <constraint firstAttribute="height" constant="25" id="PLO-bd-jBZ"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vp-3J-Fj1">
-                                                                            <rect key="frame" x="51" y="86.5" width="26.5" height="12"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="2Vp-3J-Fj1">
+                                                                            <rect key="frame" x="53.5" y="86.5" width="21.5" height="10"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -330,11 +333,11 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="55" id="nVc-kA-G2D" userLabel="ActionsStackView">
-                                        <rect key="frame" x="0.0" y="753.5" width="414" height="98.5"/>
+                                        <rect key="frame" x="0.0" y="723" width="414" height="129"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EY0-MY-KV2">
-                                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="98.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="129"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Weather"/>
                                                 <connections>
@@ -342,7 +345,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reO-GF-UjR">
-                                                <rect key="frame" x="234.5" y="0.0" width="179.5" height="98.5"/>
+                                                <rect key="frame" x="234.5" y="0.0" width="179.5" height="129"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Gallary"/>
                                                 <connections>
@@ -365,7 +368,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="if0-9X-Dfp"/>
                     <connections>
+                        <outlet property="borderingCountryLabel" destination="2cS-r8-Suo" id="FRe-4l-Tc4"/>
                         <outlet property="collectionView" destination="xlZ-4V-v2k" id="CHn-HL-v2a"/>
+                        <outlet property="countryNameLabel" destination="DfO-WO-vcR" id="pIl-oW-dMl"/>
+                        <outlet property="countryNativeNameLabel" destination="Fdm-5x-WB8" id="ccv-ZX-VyZ"/>
+                        <outlet property="favButton" destination="bye-21-5O9" id="boy-Jw-ITh"/>
+                        <outlet property="flagImageView" destination="ogc-vl-F4x" id="nkq-3M-hjC"/>
                         <outlet property="tableView" destination="YAY-98-BNp" id="jhg-Lp-CXn"/>
                         <segue destination="Ixy-il-jFF" kind="show" identifier="showWeather" id="Dtf-CX-ntV"/>
                     </connections>
@@ -585,10 +593,10 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="a02d" width="120" height="120"/>
-        <image name="au" width="320" height="160"/>
         <image name="globe" catalog="system" width="128" height="121"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.text.square" catalog="system" width="128" height="114"/>
+        <image name="placeholderflag" width="150" height="97"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

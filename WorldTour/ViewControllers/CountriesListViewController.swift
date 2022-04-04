@@ -80,8 +80,20 @@ class CountriesListViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "showCountryDetailsFromAll", sender: nil)
+        let section = indexPath.section
+        let row = indexPath.row
+        let dbCountry = countriesList[section].values.first![row]
+        performSegue(withIdentifier: "showCountryDetailsFromAll", sender: dbCountry)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "showCountryDetailsFromAll") {
+            let vc = segue.destination as! DetailsViewController
+            if let sender = sender {
+                vc.dbCountry = sender as? DBCountry
+            }
+        }
+    }
 }
 

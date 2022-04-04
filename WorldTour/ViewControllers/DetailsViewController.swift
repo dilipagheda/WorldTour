@@ -19,11 +19,28 @@ class BorderCountryCollectionViewCell: UICollectionViewCell {
 }
 
 class DetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegateFlowLayout {
+
+    var dbCountry: DBCountry?
     
+    var countryMetaDict: [[String: String]] = [[String: String]]()
+    
+    var borderingCountries: [BorderingCountryViewModel] = [BorderingCountryViewModel]()
+    
+    @IBOutlet weak var flagImageView: UIImageView!
+    
+    @IBOutlet weak var countryNameLabel: UILabel!
+    
+    @IBOutlet weak var countryNativeNameLabel: UILabel!
+    
+    @IBOutlet weak var favButton: UIButton!
+    
+    @IBOutlet weak var borderingCountryLabel: UILabel!
+    
+    // CollectionView is for bordering countries
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // TableView is for country meta information
     @IBOutlet weak var tableView: UITableView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +49,48 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
+        
+        //Styles
+        flagImageView.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1).cgColor
+        flagImageView.layer.borderWidth = 1
+        
+        //Update data
+        if let dbCountry = dbCountry {
+            self.flagImageView.image = UIImage(data: dbCountry.flag!)
+            self.countryNameLabel.text = dbCountry.name
+            self.countryNativeNameLabel.text = dbCountry.nativeName
+            
+            countryMetaDict.append(["Region": dbCountry.region ?? "Data not available"])
+            countryMetaDict.append(["Subregion": dbCountry.subregion ?? "Data not available"])
+            countryMetaDict.append(["Capital": dbCountry.capital ?? "Data not available"])
+            countryMetaDict.append(["Population": "\(dbCountry.population)"])
+            countryMetaDict.append(["Area": "\(dbCountry.area)"])
+            countryMetaDict.append(["Popular Language": dbCountry.popularLanguage ?? "Data not available"])
+            let currencyName = dbCountry.currencyName ?? ""
+            let currencySymbol = dbCountry.currencySymbol ?? ""
+            let currencyCode = dbCountry.currencyCode ?? ""
+            countryMetaDict.append(["Currency": "\(currencyName) \(currencySymbol) \(currencyCode)"])
+            tableView.reloadData()
+            
+            //Bordering Countries
+            self.borderingCountries =  ViewModelProvider.shared.getBorderingCountries(dbCountry: dbCountry)
+            if(self.borderingCountries.isEmpty) {
+                collectionView.isHidden = true
+                borderingCountryLabel.isHidden = true
+            }else{
+                collectionView.isHidden = false
+                borderingCountryLabel.isHidden = false
+                collectionView.reloadData()
+            }
+
+        }
     }
     
     //Action Handlers
+    
+    @IBAction func onTapFavButton(_ sender: Any) {
+        
+    }
     
     @IBAction func onTapWeatherButton(_ sender: Any) {
             
@@ -46,56 +102,71 @@ class DetailsViewController: UIViewController, UICollectionViewDelegate, UIColle
         
     }
     
-    
     //Table View
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let dict = self.countryMetaDict[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailsTableViewCell")
         
         if let cell = cell {
-            cell.textLabel?.text = "Population"
-            cell.detailTextLabel?.text = "20º"
+            cell.textLabel?.text = dict.keys.first!
+            cell.detailTextLabel?.text = dict.values.first!
             return cell
         }else {
             let newCell = UITableViewCell()
-            newCell.textLabel?.text = "Population"
-            newCell.detailTextLabel?.text = "202 Million"
+            newCell.textLabel?.text = dict.keys.first!
+            newCell.detailTextLabel?.text = dict.values.first!
             return newCell
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return self.countryMetaDict.count
     }
-    
-    
     
     //Collection View
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-       
+        
+        return self.borderingCountries.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let borderCountry = self.borderingCountries[indexPath.row]
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "borderCountryCell", for: indexPath) as? BorderCountryCollectionViewCell
         
         if let cell = cell {
-            cell.countryFlagImage.image = UIImage(named: "au")
-            cell.countryName.text = "Australia"
+            
+            if let flagImage = borderCountry.flagImage {
+                cell.countryFlagImage.image = UIImage(data: flagImage)
+            }else{
+                cell.countryFlagImage.image = UIImage(named: "placeholder")
+            }
+
+            cell.countryName.text = borderCountry.countryName
             return cell
             
         }else {
             let newCell = BorderCountryCollectionViewCell()
-            newCell.countryFlagImage.image = UIImage(named: "au")
-            newCell.countryName.text = "Australia"
+            
+            if let flagImage = borderCountry.flagImage {
+                newCell.countryFlagImage.image = UIImage(data: flagImage)
+            }else{
+                newCell.countryFlagImage.image = UIImage(named: "placeholder")
+            }
+
+            newCell.countryName.text = borderCountry.countryName
+            
             return newCell
         }
     }
