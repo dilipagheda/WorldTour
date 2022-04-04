@@ -42,8 +42,16 @@ class GallaryViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
             }
 
+            DispatchQueue.main.async {
+                self.activityView.stopAnimating()
+            }
+            
             if let errorMessage = errorMessage {
-                print(errorMessage)
+                Alerts.setParentView(parentView: self)
+                    .showError(errorMessage: errorMessage)
+            }else{
+                Alerts.setParentView(parentView: self)
+                    .showError(errorMessage: "Error while fetching user data")
             }
         }
     }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA1166DF27FB02600013221D /* Pixabay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1166DE27FB02600013221D /* Pixabay.swift */; };
 		DA1166E127FB11C30013221D /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1166E027FB11C30013221D /* Weather.swift */; };
+		DA1166E427FB26EF0013221D /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1166E327FB26EF0013221D /* Alerts.swift */; };
 		DA813D3627F9764D00DB9E31 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA813D3527F9764D00DB9E31 /* DataService.swift */; };
 		DA9820B827F626AD00D4410B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9820B727F626AD00D4410B /* AppDelegate.swift */; };
 		DA9820BA27F626AD00D4410B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9820B927F626AD00D4410B /* SceneDelegate.swift */; };
@@ -33,6 +34,7 @@
 		C482A8E02CBCB6FC2F84EC74 /* Pods-WorldTour.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldTour.debug.xcconfig"; path = "Target Support Files/Pods-WorldTour/Pods-WorldTour.debug.xcconfig"; sourceTree = "<group>"; };
 		DA1166DE27FB02600013221D /* Pixabay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixabay.swift; sourceTree = "<group>"; };
 		DA1166E027FB11C30013221D /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		DA1166E327FB26EF0013221D /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		DA813D3527F9764D00DB9E31 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		DA9820B427F626AD00D4410B /* WorldTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9820B727F626AD00D4410B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA1166E227FB26E20013221D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DA1166E327FB26EF0013221D /* Alerts.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		DA813D3427F9763900DB9E31 /* DataService */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +120,7 @@
 		DA9820B627F626AD00D4410B /* WorldTour */ = {
 			isa = PBXGroup;
 			children = (
+				DA1166E227FB26E20013221D /* Common */,
 				DA813D3427F9763900DB9E31 /* DataService */,
 				DA9820D727F65CF100D4410B /* ViewModelProvider */,
 				DA9820D627F65C5100D4410B /* ViewControllers */,
@@ -278,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA9820D527F6323800D4410B /* Country.swift in Sources */,
+				DA1166E427FB26EF0013221D /* Alerts.swift in Sources */,
 				DA9820DF27F8536600D4410B /* WeatherViewController.swift in Sources */,
 				DA9820D327F6318E00D4410B /* NetworkService.swift in Sources */,
 				DA813D3627F9764D00DB9E31 /* DataService.swift in Sources */,

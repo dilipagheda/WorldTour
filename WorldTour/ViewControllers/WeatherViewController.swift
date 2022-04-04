@@ -51,6 +51,18 @@ class WeatherViewController :UIViewController {
         ViewModelProvider.shared.getCurrentWeather(dbCountry: dbCountry!, shouldRefresh: shouldRefresh) {
             (dbWeather, errorMessage) in
             guard let dbWeather = dbWeather else {
+                
+                DispatchQueue.main.async {
+                    self.activityView.stopAnimating()
+                }
+                
+                if let errorMessage = errorMessage {
+                    Alerts.setParentView(parentView: self)
+                        .showError(errorMessage: errorMessage)
+                }else{
+                    Alerts.setParentView(parentView: self)
+                        .showError(errorMessage: "Error while fetching user data")
+                }
                 return
             }
             
