@@ -48,9 +48,6 @@ class CountriesListViewController: UIViewController, UITableViewDelegate, UITabl
             if let errorMessage = errorMessage {
                 Alerts.setParentView(parentView: self)
                     .showError(errorMessage: errorMessage)
-            }else{
-                Alerts.setParentView(parentView: self)
-                    .showError(errorMessage: "Error while fetching user data")
             }
         }
     }
