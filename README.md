@@ -5,15 +5,19 @@ table view.
 
 # Instructions 
 
+## How to build
+- Open WorldTour.xcworkspace in xcode.
+- Click Product Menu and Select Build Option.
+
 IMPORTANT:  PLEASE USE WorldTour.xcworkspace file to open the project in xcode. This is because, this project uses cocaoPods.
 - Once project is opened in xcode, hit build to build it.
-- Once built, a project can be run inside a iOS simulator.
 
-Other Instructions
-------------------
+## How to run in iOS Simulator
+- Once the project is built, a project can be run inside a iOS simulator. Select Product Menu -> Run Option.
 
-- When you launch the app, it will fetch countries infomration from countries API. Please be patient while its fetching this information. Sometimes, It may take a little while 
-  depending on the speed of your internet.
+# Intended User Experience
+
+- When you launch the app, it will fetch countries information from countries API. Please be patient while its fetching this information. Sometimes, It may take a   little while depending on the speed of your internet.
 - Once countries information is available, it is shown in the tableview.
 - On this table view, it organises countries by region in its individual sections.
 - User can select any country by simply tapping on the row.
